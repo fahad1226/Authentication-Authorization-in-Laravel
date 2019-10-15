@@ -44,7 +44,7 @@
                         <li>
                             <a class="text-muted" href=" {{ url('logout') }} ">Logout</a>
                         </li>
-                        <li class="text-muted">Dashboard</li>
+                       
                     </ul>
                 </div>
 

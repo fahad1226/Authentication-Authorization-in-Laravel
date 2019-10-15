@@ -50,10 +50,13 @@ class AuthController extends Controller
     public function regstore(Request $request)
     {
         $data = $request->validate([
-            'name'=>'required|min:5',
-            'email'=>'required|email',
+            'name'=>"required|min:5|regex:/^([a-zA-Z\-'\s]+)/",
+            'email'=>'required|email|regex:/^.+@.+$/i',
             'role'=>'required',
-            'password'=>'required'
+            'password'=>'required|string|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+
+            'password_confirm'=>'required|same:password',
+
         ]);
 
         //$employee = Employee::create($data);
